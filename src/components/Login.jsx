@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { Context } from "../context/Context";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
 
@@ -8,6 +9,7 @@ export const Login = () => {
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const navigate = useNavigate();
 
   // Método para validar el campo username
   const handleUsernameV = e => {
@@ -45,6 +47,8 @@ export const Login = () => {
 
     //Actualizamos el estado del usuario
     setUser(identified_user);
+    
+    navigate('/');
   }
 
   return (
