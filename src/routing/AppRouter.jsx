@@ -8,6 +8,7 @@ import { Login } from "../components/Login"
 import logo from '../assets/logo.png'
 import { useContext } from "react"
 import { Context } from "../context/Context"
+import { DarkMode } from "../components/DarkMode"
 
 export const AppRouter = () => {
 
@@ -52,6 +53,9 @@ export const AppRouter = () => {
                 <NavLink to='/login'>Identificate</NavLink>
               </li>
             )}
+            <li>
+              <DarkMode/>
+            </li>
 
           </ul>
         </nav>
@@ -66,7 +70,7 @@ export const AppRouter = () => {
         <Route path="/acerca-de" element={<div className="content"><About /></div>}></Route>
         <Route path="/contacto" element={<div className="content"><Contact /></div>}></Route>
         <Route path="/login" element={<div className="content"><Login /></div>}></Route>
-        <Route path="*" element={<ErrorPage />}></Route>
+        <Route path='*' element={<div className="error-page"><ErrorPage /></div>}></Route>
       </Routes>
     </Router>
   )
