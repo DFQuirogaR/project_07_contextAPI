@@ -9,6 +9,8 @@ import logo from '../assets/logo.png'
 import { useContext } from "react"
 import { Context } from "../context/Context"
 import { DarkMode } from "../components/DarkMode"
+import { DetailArticle } from "../components/DetailArticle"
+import { Checkout } from "../components/Checkout"
 
 export const AppRouter = () => {
 
@@ -38,13 +40,13 @@ export const AppRouter = () => {
 
             {user.username !== null ? (
               <>
-              <li>
+                <li>
                   <NavLink to='/' id="text-username">{user.username}</NavLink>
                 </li>
                 <li>
-                  <a href='/' onClick={ e =>{
+                  <a href='/' onClick={e => {
                     e.preventDefault();
-                    setUser({username: null})
+                    setUser({ username: null })
                   }}>Cerrar Sesión</a>
                 </li>
               </>
@@ -54,7 +56,7 @@ export const AppRouter = () => {
               </li>
             )}
             <li>
-              <DarkMode/>
+              <DarkMode />
             </li>
 
           </ul>
@@ -67,6 +69,8 @@ export const AppRouter = () => {
         <Route path="/" element={<div className="content"><Home /></div>}></Route>
         <Route path="/inicio" element={<div className="content"><Home /></div>}></Route>
         <Route path="/articulos" element={<div className="content"><Articles /></div>}></Route>
+        <Route path='/article/:id' element={<DetailArticle />}></Route>
+        <Route path='/checkout/:id' element={<Checkout />} />
         <Route path="/acerca-de" element={<div className="content"><About /></div>}></Route>
         <Route path="/contacto" element={<div className="content"><Contact /></div>}></Route>
         <Route path="/login" element={<div className="content"><Login /></div>}></Route>
